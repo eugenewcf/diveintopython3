@@ -18,4 +18,7 @@ with open('plural4-rules.txt', encoding='utf-8') as pattern_file:
         rules.append(build_match_and_apply_functions(
                 pattern, search, replace))
 
-print(rules)
+def plural(noun):
+    for matches_rule, apply_rule in rules:
+        if matches_rule(noun):
+            return apply_rule(noun)

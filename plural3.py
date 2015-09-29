@@ -23,11 +23,3 @@ def plural(noun):
     for matches_rule, apply_rule in rules:
         if matches_rule(noun):
             return apply_rule(noun)
-
-print(plural('note'))
-
-print(plural('sly'))
-
-print(plural('search'))
-
-print(plural('apply'))
