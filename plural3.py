@@ -9,11 +9,11 @@ def build_match_and_apply_functions(pattern, search, replace):
 
     return (matches_rule, apply_rule)
 
-partterns = \
+patterns = \
     (
         ('[sxz]$', '$', 'es'),
         ('[^aeioudgkprt]h$', '$', 'es'),
-        ('(qu[^aeiou])y$', 'y$', 'ies'),
+        ('(qu|[^aeiou])y$', 'y$', 'ies'),
         ('$', '$', 's')
     )
 rules = [build_match_and_apply_functions(pattern, search, replace)
@@ -21,5 +21,13 @@ rules = [build_match_and_apply_functions(pattern, search, replace)
 
 def plural(noun):
     for matches_rule, apply_rule in rules:
-        if matches_rule(nounl):
+        if matches_rule(noun):
             return apply_rule(noun)
+
+print(plural('note'))
+
+print(plural('sly'))
+
+print(plural('search'))
+
+print(plural('apply'))
